@@ -12,31 +12,20 @@
 
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
-
-
-	<!-- JS -->
 	<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 	<script src="{{ asset('js/shuffle.min.js') }}"></script>
-	<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('js/foundation.min.js') }}"></script>
-
-	<!-- CSS -->
-	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/stars.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/book.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/books.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/bookshelf.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/foundation.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/problem.css') }}" rel="stylesheet">
-
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
 	<!-- Styles -->
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/stars.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/book.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/books.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/bookshelf.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -53,7 +42,9 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<a class="order-1 nav-link" href="{{ route('home') }}">Home</a>
-					<a class="order-2 nav-link navbar-right" href="{{ route('books') }}">Books</a>
+					@if (Auth::check())
+					<a class="order-2 nav-link navbar-right" href="{{ url('books') }}">Books</a>
+					@endif
 					@if (Auth::check() and Auth::user()->is_admin)
 					<a class="order-2 nav-link navbar-right" href="{{ route('books/manage') }}">Manage books</a>
 					@endif

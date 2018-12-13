@@ -14,7 +14,7 @@
 				<span class="text-success">
 					{{ Auth::user()->name }}
 				</span> Have fun with
-				<a href="{{ route('books') }}">access to our free books</a>
+				<a href="{{ url('books') }}">access to our free books</a>
 				@endguest
 			</h2>
 		</div>

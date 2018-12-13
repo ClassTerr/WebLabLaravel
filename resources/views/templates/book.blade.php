@@ -15,6 +15,6 @@
 		<h3 class="book-item_title">{{$book->name}}</h3>
 		<p class="author">{{$book->author}} &bull; {{$book->year}}</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
-		<a href="{{ asset('book/' . $book->id) }}" class="button">Details</a>
+		<a href="{{ asset('books/' . $book->id) }}" class="button">Details</a>
 	</div>
 </li>

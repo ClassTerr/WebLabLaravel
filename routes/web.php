@@ -11,13 +11,26 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('', 'HomeController@index')->name('home');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/book/{id}', 'BookController@index')->name('book');
-Route::get('/books', 'BooksController@index')->name('books');
+Route::get('home', 'HomeController@index');
+
+Route::get('books/manage', 'BooksController@manage')->name('books/manage')->middleware("is-admin");
+
+Route::resource('books', 'BooksController')->except([
+    'index', 'show'
+])->middleware("is-admin");
+
+Route::resource('books', 'BooksController')->only([
+    'index', 'show'
+])->middleware("auth");
+
+/*
+Route::get('/books/{id}', 'BookController@index')->name('book');
 Route::get('/books/manage', 'BooksController@manage')->name('books/manage');
-Route::get('/books/addbook', 'BooksController@create')->name('books/addbook');
+Route::post('/books/add', 'BooksController@add')->name('books/add');
+Route::post('/books/{id}/edit', 'BooksController@edit')->name('books/edit');
+Route::post('/books/{id}/delete', 'BooksController@delete')->name('books/delete');*/

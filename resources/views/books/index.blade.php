@@ -30,7 +30,9 @@
 					@endforeach
 				</ul>
 			</div>
-
+			<div class="text-center">
+				{{ $books->links() }}
+			</div>
 		</section>
 
 	</div>
