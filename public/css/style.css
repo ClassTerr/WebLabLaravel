@@ -113,3 +113,7 @@ body {
     box-shadow: 0 0 5px #cacaca;
     transition: box-shadow .5s,border-color .25s ease-in-out;
 }
+
+.manage-table .btn {
+    width: 100%;
+}

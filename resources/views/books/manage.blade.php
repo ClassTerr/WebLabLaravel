@@ -34,7 +34,7 @@
 	<!-- main content output -->
 	<div class="box">
 		<h3>List of books</h3>
-		<table>
+		<table class="manage-table">
 			<thead style="background-color: #ddd; font-weight: bold;">
 				<tr>
 					<td>Id</td>
@@ -75,6 +75,9 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+	<div class="text-center">
+		{{ $books->links() }}
 	</div>
 </div>
 @endsection
